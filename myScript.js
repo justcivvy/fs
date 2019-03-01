@@ -1,9 +1,10 @@
 
-$(document).ready(function (myFunction) {
+$(document).ready(function (callMeIshmael) {
   jQuery.get("https://awesome-page-fullstory.glitch.me/sentences.txt",
-  function(data) {
-    var myvar = data;
-      document.getElementById("demo").innerHTML = data;
+  function(whiteWhale) {
+    //var harpoon = whiteWhale;
+      document.getElementById("demo").innerHTML = whiteWhale;
+
   });
 
 });
