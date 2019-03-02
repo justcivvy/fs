@@ -32,7 +32,6 @@ fs.readFile('sentences.txt', function(err, text) { //get the text or error
       }
     });
 
-  // console.log('Words' + '['+ i +']' + ', Length: ' + words.length + ' ' + words);
     i++;
 
   });
