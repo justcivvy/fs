@@ -1,13 +1,9 @@
 
-$(document).ready(function (callMeIshmael) {
+const request = require('request');
 
-  jQuery.get("https://awesome-page-fullstory.glitch.me/sentences.txt",
-  function(whiteWhale) {
-
-    document.getElementById("demo").innerHTML = whiteWhale;
-
-  
-
-  });
-
+request.get('https://awesome-page-fullstory.glitch.me/sentences.txt',
+  function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log(body)
+    }
 });
