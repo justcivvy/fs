@@ -5,7 +5,7 @@ fs.readFile('sentences.txt', function(err, text) { //get the text or error
   if(err) throw err;
 else
   console.log('There are ' + splitText(text) + ' lines that have at least seven' +
-  ' with greater than or equal to two vowels.');
+  ' words with greater than or equal to two vowels.');
 
   function splitText(text) {
     var lcount = 0;
