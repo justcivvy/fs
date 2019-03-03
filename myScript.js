@@ -5,34 +5,52 @@ fs.readFile('sentences.txt', function(err, text) { //get the text or error
   if(err) throw err;
 else
 
-getLines(text);
+splitText(text);
 
-function getLines(text) {
+function splitText(text) {
+  //console.log('start lines');
+  var lcount = 0;
   var lines = text.toString().split("\n");
     lines.forEach(function(line) {
-      iterateWords(line);
+      if (splitLines(line) >= 7) {
+        lcount++;
+      }
+      console.log(lcount);
+      return lcount;
     });
 }
 
-function getWords(line) {
+function splitLines(line) {
+  //console.log(typeof line);
+  var wcount = 0;
   var words = line.toString().split(" ");
   words.forEach(function(word) {
-    countVowels(word);
-    //console.log(word);
+    //countVowels(word);
+    //console.log(countVowels(word));
+  if (countVowels(word) >= 2) {
+     wcount++;
+     //console.log('got to wcount');
+   }
+   //console.log(wcount);
+   return wcount;
   });
 }
 
-function getVowels(word) {
-  var vowels = 'aeiouAEIOU';
+function countVowels(word) {
+  //console.log(word);
+  var vowels = ['a', 'e', 'i', 'o', 'u'];
   var vcount = 0;
   //console.log(word + word.length);
-  for(var x = 0; x < word.length ; x++) {
-    if (vowels.indexOf(word[x]) !== -1) {
-      //console.log(word[x]);
-      vcount += 1;
-      console.log(vcount);
-      //console.log(word + vcount);
+  //console.log(typeof word);
+  for (var x = 0; x < word.length ; x++) {
+    //console.log(word[x]);
+    if (vowels.includes(word[x].toLowerCase())) {
+      //console.log('enter');
+      vcount++;
     }
   }
+  //console.log(word + vcount);
+  return vcount;
 }
+
 });
