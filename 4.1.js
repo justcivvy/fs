@@ -11,18 +11,22 @@ function splitText(text) {
   //console.log('start lines');
   var lines = text.toString().split("\n");
     lines.forEach(function(line) {
-      splitLines(line);
+      console.log(splitLines(line));
     });
 }
 
 function splitLines(line) {
-
   //console.log(typeof line);
+  var wcount = 0;
   var words = line.toString().split(" ");
   words.forEach(function(word) {
-    countVowels(word);
-
+    //countVowels(word);
+    //console.log(countVowels(word));
+  if (countVowels(word) > 2) {
+     wcount++;
+   }
   });
+  return wcount;
 }
 
 function countVowels(word) {
@@ -38,7 +42,8 @@ function countVowels(word) {
       vcount++;
     }
   }
-console.log(word + vcount);
+  return vcount;
+//console.log(word + vcount);
 }
 
 });
