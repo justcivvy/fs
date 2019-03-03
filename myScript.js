@@ -5,30 +5,30 @@ fs.readFile('sentences.txt', function(err, text) { //get the text or error
   if(err) throw err;
 else
 
-splitText(text);
+console.log('There are ' + splitText(text) + ' lines that have at least 7 words with 2 vowels.');
 
 function splitText(text) {
   var lcount = 0;
   var lines = text.toString().split("\n");
     lines.forEach(function(line) {
       if (splitLines(line) >= 7) {
-        lcount++;
+        lcount += 1;
       }
-      console.log('lcount' + lcount);
-      return lcount;
     });
+    //console.log('lcount' + lcount);
+    return lcount;
 }
 
 function splitLines(line) {
+  var wcount = 0;
   var words = line.toString().split(" ");
   words.forEach(function(word) {
-    var wcount = 0;
       if (countVowels(word) >= 2) {
         wcount++;
       }
-   console.log('wcount' + wcount);
-   return wcount;
  });
+ //console.log('wcount' + wcount);
+ return wcount;
 }
 
 function countVowels(word) {
@@ -39,7 +39,7 @@ function countVowels(word) {
       vcount++;
     }
   }
-  console.log(word + vcount);
+  //console.log(word + vcount);
   return vcount;
 }
 });
